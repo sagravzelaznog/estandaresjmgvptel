@@ -3,77 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sesión 1: Fundamentos Cognitivos y Planeación</title>
+    <title>Sesión 1 - EC0050</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header class="top-nav">
-        <div class="logo">Curso EC0050</div>
-        <button class="hamburger" aria-label="Abrir menú" id="hamburger-btn">
-            <span></span>
-            <span></span>
-            <span></span>
+    <header class="header">
+        <div class="logo">Arquitecto Maestro</div>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </button>
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><button class="nav-link" data-target="intro">1. Introducción</button></li>
+                <li><button class="nav-link" data-target="teorias">2. Teorías del Aprendizaje</button></li>
+                <li><button class="nav-link" data-target="planeacion">3. Plan General</button></li>
+                <li><button class="nav-link" data-target="taller">4. Taller Práctico</button></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav class="side-menu" id="side-menu">
-        <ul>
-            <li><a href="#intro" class="nav-link" data-target="intro">Introducción</a></li>
-            <li><a href="#teorias" class="nav-link" data-target="teorias">Teorías del Aprendizaje</a></li>
-            <li><a href="#plan" class="nav-link" data-target="plan">Estructura del Plan</a></li>
-            <li><a href="#taller" class="nav-link" data-target="taller">Taller Práctico</a></li>
-        </ul>
-    </nav>
-
-    <main class="content-container">
+    <main class="main-content">
         
         <section id="intro" class="content-section active">
-            <h2>SESIÓN 1: Fundamentos Cognitivos y Planeación Estratégica</h2>
-            <p><strong>Duración:</strong> 2 horas</p>
-            <p><strong>Objetivo:</strong> Comprender las teorías del aprendizaje y comenzar la planeación del curso identificando las necesidades del usuario.</p>
-            <div class="card info-card">
-                <p>💡 <em>Instrucción de Navegación:</em> Utiliza el menú superior (hamburguesa) para avanzar a través de los temas de esta sesión sin saturar tu memoria de trabajo.</p>
-            </div>
+            <h2>Fundamentos Cognitivos y Planeación Estratégica</h2>
+            <p><strong>Elemento 1:</strong> Planear cursos de capacitación para ser impartidos mediante Internet.</p>
+            <p><strong>Objetivo de la sesión:</strong> Comprender los principios básicos de las teorías de aprendizaje generalmente aceptadas y comenzar el plan general que corresponda con los requerimientos del cliente y el perfil de los usuarios.</p>
         </section>
 
         <section id="teorias" class="content-section">
-            <h2>00:00 - 00:30 | Teorías del Aprendizaje</h2>
-            <p>Análisis de los principios básicos en entornos virtuales:</p>
+            <h2>Teorías del Aprendizaje (00:00 - 00:30)</h2>
+            <p>Para diseñar un entorno de aprendizaje efectivo, es fundamental conocer los siguientes enfoques:</p>
             <ul>
-                <li><strong>Conductismo:</strong> Refuerzo y repetición.</li>
-                <li><strong>Cognitivismo:</strong> Procesamiento y retención de información.</li>
-                <li><strong>Constructivismo:</strong> Construcción activa del conocimiento.</li>
-                <li><strong>Andragogía:</strong> Principios de educación para adultos (orientación a problemas, relevancia práctica).</li>
+                <li><strong>Conductismo:</strong> Enfoque en la repetición y el refuerzo.</li>
+                <li><strong>Cognitivismo:</strong> Cómo el cerebro procesa y retiene información.</li>
+                <li><strong>Constructivismo:</strong> Construcción activa del conocimiento por parte del alumno.</li>
+                <li><strong>Humanismo:</strong> Centrado en el potencial humano y el desarrollo personal.</li>
+                <li><strong>Principios de educación para adultos:</strong> Andragogía, enfocada en la relevancia y aplicabilidad inmediata.</li>
             </ul>
         </section>
 
-        <section id="plan" class="content-section">
-            <h2>00:30 - 01:15 | Estructura del Plan General (Parte 1)</h2>
-            <p>La planeación estratégica requiere definir con precisión:</p>
+        <section id="planeacion" class="content-section">
+            <h2>Estructura del Plan General (00:30 - 01:15)</h2>
+            <p>El plan general elaborado sobre el curso debe especificar detalladamente:</p>
             <ul>
-                <li><strong>Requerimientos del cliente:</strong> Perfil demográfico y necesidades operativas.</li>
-                <li><strong>Requerimientos humanos:</strong> Especificar el número de usuarios por tutor y los tiempos de respuesta esperados.</li>
-                <li><strong>Requerimientos de ingreso:</strong> Conocimientos previos, habilidades tecnológicas e infraestructura informática necesaria (hardware/software).</li>
+                <li>Requerimientos de ingreso: Establecen los conocimientos y habilidades que deben tener previos al curso.</li>
+                <li>Infraestructura: Especifican las necesidades de infraestructura informática a las que deberán tener acceso.</li>
+                <li>Requerimientos humanos: Especifican el número de usuarios que deben ser atendidos por tutor y los tiempos de respuesta.</li>
             </ul>
         </section>
 
         <section id="taller" class="content-section">
-            <h2>01:15 - 02:00 | Taller Práctico</h2>
-            <div class="card task-card">
-                <h3>🛠️ Actividad: El "Alumno Avatar"</h3>
-                <p>Con base en los requerimientos del cliente, redacta en un documento:</p>
-                <ol>
-                    <li>El perfil de ingreso detallado de tu alumno ideal.</li>
-                    <li>Los requisitos tecnológicos mínimos que deberá poseer para cursar el módulo sin fricción.</li>
-                </ol>
-            </div>
+            <h2>Taller Práctico (01:15 - 02:00)</h2>
+            <p><strong>Actividad:</strong> Creación del perfil del usuario.</p>
+            <p>Con base en los requerimientos del cliente, redacta un documento que detalle los conocimientos y habilidades previos necesarios para acceder al curso, así como la conectividad a Internet requerida.</p>
         </section>
 
     </main>
 
-    <footer>
-        <p>&copy;JMGV2026 SESION 1. TODOS LOS DERECHOS RESERVADOS.</p>
+    <footer class="footer">
+        <p>&copy;JMGV2026 SESION 01. TODOS LOS DERECHOS RESERVADOS.</p>
     </footer>
 
     <script src="scripts.js"></script>

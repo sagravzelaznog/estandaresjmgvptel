@@ -1,17 +1,14 @@
-/* =========================================
-   VARIABLES Y CONFIGURACIÓN BASE
-   ========================================= */
+/* Variables para escalabilidad y fácil rediseño */
 :root {
-    --primary-color: #1a365d;
-    --secondary-color: #2b6cb0;
-    --accent-color: #ed8936;
-    --bg-color: #f7fafc;
-    --text-color: #2d3748;
-    --card-bg: #ffffff;
-    --footer-bg: #1a202c;
+    --primary-color: #2c3e50;
+    --secondary-color: #18bc9c;
+    --bg-color: #f4f7f6;
+    --text-color: #333333;
+    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --transition-speed: 0.3s;
 }
 
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +16,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-main);
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -28,25 +25,21 @@ body {
     min-height: 100vh;
 }
 
-/* =========================================
-   NAVEGACIÓN MOBILE-FIRST
-   ========================================= */
-.top-nav {
+/* Header y Navegación */
+.header {
     background-color: var(--primary-color);
     color: white;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .logo {
-    font-weight: bold;
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
 /* Menú Hamburguesa */
@@ -57,154 +50,128 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 5px;
+    z-index: 100;
 }
 
-.hamburger span {
-    display: block;
+.hamburger .bar {
     width: 25px;
     height: 3px;
     background-color: white;
-    border-radius: 3px;
     transition: all var(--transition-speed);
 }
 
-/* Menú Lateral (Oculto por defecto en móvil) */
-.side-menu {
-    position: fixed;
-    top: 60px; /* Altura aproximada del header */
+/* Menú Desplegable (Mobile) */
+.nav-menu {
+    position: absolute;
+    top: 100%;
     right: -100%;
-    width: 250px;
+    background-color: var(--primary-color);
+    width: 200px;
     height: calc(100vh - 60px);
-    background-color: var(--card-bg);
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
     transition: right var(--transition-speed) ease;
-    z-index: 999;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    z-index: 99;
 }
 
-.side-menu.open {
+.nav-menu.active {
     right: 0;
 }
 
-.side-menu ul {
+.nav-menu ul {
     list-style: none;
     padding: 1rem 0;
 }
 
-.side-menu a {
-    display: block;
-    padding: 1rem 1.5rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    border-left: 4px solid transparent;
+.nav-menu li {
+    text-align: left;
+}
+
+.nav-link {
+    background: none;
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
     transition: background var(--transition-speed);
 }
 
-.side-menu a:hover, .side-menu a:focus {
-    background-color: var(--bg-color);
-    border-left-color: var(--secondary-color);
+.nav-link:hover, .nav-link.active-btn {
+    background-color: var(--secondary-color);
 }
 
-/* =========================================
-   CONTENIDO PRINCIPAL (SPA MODE)
-   ========================================= */
-.content-container {
+/* Contenido Principal */
+.main-content {
     flex: 1;
-    padding: 1.5rem;
+    padding: 2rem 1rem;
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
 }
 
+/* Ocultar todas las secciones por defecto */
 .content-section {
-    display: none; /* Oculta todas las secciones */
-    animation: fadeIn var(--transition-speed) ease-in;
+    display: none;
+    animation: fadeIn var(--transition-speed) ease-in-out;
 }
 
+/* Mostrar solo la sección activa */
 .content-section.active {
-    display: block; /* Muestra solo la activa */
+    display: block;
 }
 
+.content-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.content-section p, .content-section ul {
+    margin-bottom: 1rem;
+}
+
+.content-section ul {
+    padding-left: 1.5rem;
+}
+
+/* Animación de entrada */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Estilos de Texto y Tarjetas */
-h2 {
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 0.5rem;
-}
-
-ul, ol {
-    margin: 1rem 0 1rem 1.5rem;
-}
-
-li {
-    margin-bottom: 0.5rem;
-}
-
-.card {
-    background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    margin-top: 1.5rem;
-    border-left: 5px solid var(--secondary-color);
-}
-
-.task-card {
-    border-left-color: var(--accent-color);
-}
-
-/* =========================================
-   FOOTER
-   ========================================= */
-footer {
-    background-color: var(--footer-bg);
-    color: #a0aec0;
+/* Pie de Página */
+.footer {
+    background-color: var(--primary-color);
+    color: white;
     text-align: center;
-    padding: 1.5rem;
-    font-size: 0.875rem;
+    padding: 1rem;
+    font-size: 0.8rem;
     margin-top: auto;
 }
 
-/* =========================================
-   MEDIA QUERIES (TABLETS Y ESCRITORIO)
-   ========================================= */
+/* Media Query para pantallas grandes (Desktop) */
 @media (min-width: 768px) {
     .hamburger {
         display: none; /* Ocultar hamburguesa en PC */
     }
-
-    .top-nav {
-        justify-content: center;
-    }
-
-    body {
-        flex-direction: row; /* Layout con barra lateral fija */
-        flex-wrap: wrap;
-    }
-
-    .top-nav, footer {
-        width: 100%;
-    }
-
-    .side-menu {
-        position: relative;
-        top: 0;
-        right: 0;
-        width: 250px;
+    
+    .nav-menu {
+        position: static;
         height: auto;
-        min-height: calc(100vh - 130px); /* Restando header y footer */
-        box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        width: auto;
+        box-shadow: none;
     }
-
-    .content-container {
-        width: calc(100% - 250px);
-        padding: 3rem;
+    
+    .nav-menu ul {
+        display: flex;
+        padding: 0;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 1rem;
     }
 }
